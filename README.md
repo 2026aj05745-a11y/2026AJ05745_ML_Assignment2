@@ -29,7 +29,7 @@ The dataset was divided into 80% training data and 20% testing data using strati
 
 ## 3. GitHub Repository Link
 
-Add the GitHub repository URL after creating the repository.
+https://github.com/2026aj05745-a11y/2026AJ05745_ML_Assignment2.git
 
 ## 4. Models Used and Evaluation Metrics
 
