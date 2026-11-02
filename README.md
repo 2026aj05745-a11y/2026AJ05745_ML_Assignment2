@@ -1,4 +1,4 @@
-# Machine Learning Classification Models and Deployment
+# Machine Learning Assignment 2
 **Subject: Machine Learning**  
 **Assignment 2**
 
