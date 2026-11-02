@@ -1,49 +1,101 @@
-
-# Machine Learning Assignment 2
+# Machine Learning Classification Models and Deployment
+**Subject: Machine Learning**  
+**Assignment 2**
 
 ## 1. Problem Statement
 
-The objective of this assignment is to implement and compare five machine learning classification algorithms using a common dataset.
+The objective of this project is to implement and compare five machine learning classification algorithms using a common dataset. The models are trained and evaluated to identify whether a breast tumour is malignant or benign.
 
-The project also includes an interactive Streamlit application that allows users to upload test data, select a classification model and view its evaluation metrics.
+The project includes model development, performance evaluation, saving trained models, and developing an interactive web application using Streamlit.
+
+The five classification algorithms implemented are:
+
+1. Logistic Regression
+2. Decision Tree Classifier
+3. K-Nearest Neighbors (KNN)
+4. Gaussian Naive Bayes
+5. Support Vector Machine (SVM)
+
+The performance of each model is evaluated using Accuracy, AUC Score, Precision, Recall, F1 Score and Matthews Correlation Coefficient (MCC).
 
 ## 2. Dataset Description
 
-**Dataset:** Wisconsin Diagnostic Breast Cancer Dataset
+**Dataset Name:** Wisconsin Diagnostic Breast Cancer Dataset
 
-**Source:** UCI Machine Learning Repository
+**Dataset Source:** UCI Machine Learning Repository  
+https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic
 
-**Dataset URL:** https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic
+The Wisconsin Diagnostic Breast Cancer dataset is used for this binary classification problem. It contains numerical measurements calculated from digitized images of breast mass samples.
 
-- Total instances: 569
-- Input features: 30
-- Target classes: 2
-- Classification type: Binary
-- Missing values: 0
+The dataset contains 569 instances and 30 numerical input features. The target variable represents two classes: Malignant and Benign.
 
-Target labels:
-- 0: Malignant
-- 1: Benign
+### Dataset Information
 
-The dataset was divided into 80% training data and 20% testing data using stratified sampling.
+| Description | Details |
+|---|---|
+| Dataset name | Wisconsin Diagnostic Breast Cancer |
+| Total instances | 569 |
+| Total input features | 30 |
+| Target variable | Diagnosis |
+| Classification type | Binary classification |
+| Missing values | 0 |
+| Malignant samples | 212 |
+| Benign samples | 357 |
+| Training samples | 455 |
+| Testing samples | 114 |
+
+### Target Classes
+
+- 0 – Malignant
+- 1 – Benign
+
+The dataset was divided into training and testing sets. The training set contains 455 samples, while the testing set contains 114 samples.
 
 ## 3. GitHub Repository Link
 
-https://github.com/2026aj05745-a11y/2026AJ05745_ML_Assignment2.git
+**GitHub Repository:**  
+https://github.com/2026aj05745-a11y/2026AJ05745_ML_Assignment2
+
+The repository contains the source code, trained classification models, test dataset, requirements file and project documentation.
+
+### Project Structure
+
+```text
+2026AJ05745_ML_Assignment2/
+│
+├── app.py
+├── 2026AJ05745.ipynb
+├── README.md
+├── requirements.txt
+├── test_data.csv
+│
+├── model/
+│   ├── logistic_regression.joblib
+│   ├── decision_tree.joblib
+│   ├── knn.joblib
+│   ├── naive_bayes.joblib
+│   └── support_vector_machine.joblib
+│
+└── results/
+    └── metrics.csv
+```
 
 ## 4. Models Used and Evaluation Metrics
 
-Five classification algorithms were implemented:
+All five classification models were implemented using the same dataset and evaluated on the testing data.
 
-1. Logistic Regression
-2. Decision Tree
-3. K-Nearest Neighbors
-4. Gaussian Naive Bayes
-5. Support Vector Machine
+The following six evaluation metrics were calculated for each model:
 
-### Model Comparison
+- **Accuracy:** Measures the overall percentage of correct predictions.
+- **AUC Score:** Measures the ability of the model to distinguish between the two classes.
+- **Precision:** Measures how many predicted positive samples are actually positive.
+- **Recall:** Measures how many actual positive samples are correctly identified.
+- **F1 Score:** Represents the harmonic mean of precision and recall.
+- **MCC:** Measures the quality of binary classification predictions, considering all four confusion matrix categories.
 
-| Model | Accuracy | AUC | Precision | Recall | F1 | MCC |
+### 4.1 Model Performance Comparison
+
+| ML Model Name | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
 |---|---:|---:|---:|---:|---:|---:|
 | Logistic Regression | 0.9825 | 0.9954 | 0.9861 | 0.9861 | 0.9861 | 0.9623 |
 | Decision Tree | 0.9211 | 0.9163 | 0.9565 | 0.9167 | 0.9362 | 0.8341 |
@@ -51,54 +103,76 @@ Five classification algorithms were implemented:
 | Naive Bayes | 0.9298 | 0.9868 | 0.9444 | 0.9444 | 0.9444 | 0.8492 |
 | Support Vector Machine | 0.9825 | 0.9950 | 0.9861 | 0.9861 | 0.9861 | 0.9623 |
 
-Note: Precision, Recall and F1 use class 1 (Benign) as the positive class.
+### 4.2 Observations on Model Performance
 
-### Observations
+| ML Model Name | Observation about Model Performance |
+|---|---|
+| Logistic Regression | Logistic Regression achieved 98.25% accuracy and the highest AUC score of 0.9954. It provided excellent classification performance with very few incorrect predictions. |
+| Decision Tree | Decision Tree achieved 92.11% accuracy. It performed reasonably well but had comparatively lower AUC and MCC scores than the other models. |
+| KNN | KNN achieved 95.61% accuracy and 0.9788 AUC. It provided good classification results and performed better than Decision Tree and Naive Bayes in terms of accuracy. |
+| Naive Bayes | Gaussian Naive Bayes achieved 92.98% accuracy and an AUC score of 0.9868. It showed good class separation, although its overall accuracy was lower than Logistic Regression, KNN and SVM. |
+| Support Vector Machine | SVM achieved 98.25% accuracy and an AUC score of 0.9950. It performed very well and produced results close to Logistic Regression. |
 
-**Logistic Regression:** Achieved 98.25% accuracy and 99.54% AUC. It correctly classified 112 out of 114 test samples.
+### 4.3 Overall Winner
 
-**Decision Tree:** Achieved 92.11% accuracy and correctly classified 105 samples.
+Based on the evaluation results, **Logistic Regression is the overall winner** for this dataset.
 
-**KNN:** Achieved 95.61% accuracy and correctly classified 109 samples.
+It achieved the highest accuracy jointly with Support Vector Machine at 98.25%, and obtained the highest AUC score of 0.9954. It also achieved an MCC score of 0.9623.
 
-**Naive Bayes:** Achieved 92.98% accuracy and 98.68% AUC. It correctly classified 106 samples.
+Support Vector Machine also demonstrated excellent performance, with results very close to Logistic Regression.
 
-**Support Vector Machine:** Achieved 98.25% accuracy and correctly classified 112 samples. Its performance was very close to Logistic Regression.
+## 5. Streamlit Web Application
 
-**Overall Winner:** Logistic Regression performed best based on the highest AUC and joint top performance on the other main metrics. SVM was a very close second.
+An interactive web application was developed using Streamlit to demonstrate the trained classification models.
 
-## 5. Streamlit Application
+**Live Streamlit Application:**  
+https://2026aj05745mlassignment2-uu7t7fun4govctqppa6tx9.streamlit.app
 
-The application provides:
+### Features of the Application
 
-- CSV test dataset upload.
-- Classification model selection.
-- Accuracy, AUC, Precision, Recall, F1 and MCC.
-- Confusion matrix.
-- Classification report.
-- Comparison of all five models.
-- Downloadable comparison results.
+1. **Dataset Upload:** Users can upload a labelled test dataset in CSV format.
+2. **Model Selection:** Users can select any one of the five trained classification models.
+3. **Evaluation Metrics:** The application displays Accuracy, AUC, Precision, Recall, F1 Score and MCC.
+4. **Confusion Matrix:** Displays the confusion matrix for the selected model.
+5. **Classification Report:** Displays precision, recall, F1 score and support for each class.
+6. **Model Comparison:** Displays the performance comparison of all five classification models.
 
-The application loads saved models and evaluates uploaded test data without retraining.
+The application loads the previously saved trained models and evaluates them using the uploaded test data. It does not retrain the models on the uploaded test dataset.
 
-**Live Streamlit App:** https://2026aj05745mlassignment2-uu7t7fun4govctqppa6tx9.streamlit.app/
+## 6. Requirements and Dependencies
 
-## 6. Technologies Used
+The project uses the following Python libraries:
 
-- Python
+- Streamlit
+- Scikit-learn
 - NumPy
 - Pandas
-- Scikit-learn
 - Matplotlib
 - Seaborn
 - Joblib
-- Streamlit
-- GitHub
+
+The dependencies are listed in the `requirements.txt` file.
+
+### Running the Application Locally
+
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit application:
+
+```bash
+streamlit run app.py
+```
 
 ## 7. Conclusion
 
-In this assignment, five classification algorithms were implemented using the Wisconsin Diagnostic Breast Cancer dataset.
+In this assignment, five machine learning classification algorithms were implemented and evaluated using the Wisconsin Diagnostic Breast Cancer dataset.
 
-Their performance was evaluated using six classification metrics. Logistic Regression achieved the best overall results, while Support Vector Machine showed nearly identical performance.
+The results show that Logistic Regression and Support Vector Machine provided the best overall classification performance. Logistic Regression achieved the highest AUC score, while both models achieved the same accuracy.
 
-An interactive Streamlit application was developed to make model evaluation easier through a web interface.
+An interactive Streamlit application was also developed and deployed to demonstrate the models using uploaded test data.
+
+This project provided practical experience in machine learning model implementation, evaluation, model saving, GitHub repository management and web application deployment.
