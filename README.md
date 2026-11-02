@@ -81,7 +81,7 @@ The application provides:
 
 The application loads saved models and evaluates uploaded test data without retraining.
 
-**Live Streamlit App:** Add the deployed application URL here.
+**Live Streamlit App:** https://2026aj05745mlassignment2-uu7t7fun4govctqppa6tx9.streamlit.app/
 
 ## 6. Technologies Used
 
