@@ -1,5 +1,5 @@
 
-# BITS Pilani M.Tech AIML - Machine Learning Assignment 2
+# Machine Learning Assignment 2
 
 ## 1. Problem Statement
 
