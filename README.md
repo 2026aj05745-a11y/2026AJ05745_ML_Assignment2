@@ -1,6 +1,4 @@
 # Machine Learning Assignment 2
-**Subject: Machine Learning**  
-**Assignment 2**
 
 ## 1. Problem Statement
 
